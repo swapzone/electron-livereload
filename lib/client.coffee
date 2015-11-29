@@ -46,11 +46,10 @@ class Client
     switch type 
       when 'reload'
         if @browserWindow
-          currentUrl = @browserWindow.webContents.getUrl()
+          currentUrl = @browserWindow.webContents.getURL()
           @browserWindow.webContents.stop()      
-          @browserWindow.webContents.destroy()
-          @browserWindow.webContents._reloadIgnoringCache()
-          @browserWindow.webContents.loadUrl currentUrl 
+          @browserWindow.webContents.reloadIgnoringCache()
+          @browserWindow.webContents.loadURL currentUrl
 
   close: ->
     @socket.terminate()

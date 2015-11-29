@@ -7,7 +7,11 @@ pid = null
 
 class Server
   constructor: (opts) ->
-    @path = process.cwd()
+    if opts?.applicationPath
+      @path = process.cwd() + "/" + opts.applicationPath
+    else
+      @path = process.cwd()
+
     @port = 30080
     @spawnOpt = stdio: 'inherit'
 
